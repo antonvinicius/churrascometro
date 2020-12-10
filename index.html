@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/garden-barbecue-.svg" type="image/x-icon">
+    <title>Churrascômetro</title>
+</head>
+
+<body>
+    <div class="app">
+
+        <header>
+            <h1>Churrascômetro</h1>
+            <img src="./assets/garden-barbecue-.svg" alt="Logo">
+            <h2>Uma solução para o churrasco perfeito.</h2>
+        </header>
+        <div class="container" id="p1">
+            <div class="input-group" id="inputs">
+                <div class="input-group-image">
+                    <img src="./assets/dad.svg" alt="">
+                    <input id="nHomens" type="text" placeholder="Nº de Homens">
+                </div>
+                <div class="input-group-image">
+                    <img src="./assets/woman.svg" alt="">
+                    <input id="nMulheres" type="text" placeholder="Nº de Mulheres">
+                </div>
+                <div class="input-group-image">
+                    <img src="./assets/baby-boy.svg" alt="">
+                    <input id="nCriancas" type="text" placeholder="Nº de Crianças">
+                </div>
+                <div class="input-group-image">
+                    <img src="./assets/clock.svg" alt="">
+                    <input id="nDuracao" type="text" placeholder="Tempo de duração (horas)">
+                </div>
+            </div>
+            <p>O que terá no churrasco?</p>
+            <div class="meat-icons" id="meat-icons">
+                <img onclick="enableMeatIcon(this)" id="carne" src="./assets/images/meat-icons/meat.png" alt="Carne">
+                <img onclick="enableMeatIcon(this)" id="frango" src="./assets/images/meat-icons/chicken.png" alt="Frango">
+                <img onclick="enableMeatIcon(this)" id="refri" src="./assets/images/meat-icons/coke.png" alt="Refrigerante">
+                <img onclick="enableMeatIcon(this)" id="cerveja" src="./assets/images/meat-icons/beer.png" alt="Cerveja">
+            </div>
+            <button onclick="recuperarValoresChurrasco()">CHURRASCAR</button>
+        </div>
+        <div class="container" id="p2">
+            <p class="msg">Ebaa! É hora de colocar a mão na lenha 🔥</p>
+            <p class="red">Você precisa de:</p>
+            <img src="./assets/back.svg" id="back" alt="Voltar">
+            <div class="input-group">
+                <div class="input-group-image">
+                    <img class="img" src="./assets/images/meat-icons/meat.png" alt="">
+                    <input type="text">
+                </div>
+                <div class="input-group-image">
+                    <img class="img" src="./assets/images/meat-icons/chicken.png" alt="">
+                    <input type="text">
+                </div>
+                <div class="input-group-image">
+                    <img class="img" src="./assets/images/meat-icons/coke.png" alt="">
+                    <input type="text">
+                </div>
+                <div class="input-group-image">
+                    <img class="img" src="./assets/images/meat-icons/beer.png" alt="">
+                    <input type="text">
+                </div>
+            </div>
+            <button>COMPARTILHAR</button>
+        </div>
+
+        <footer>Desenvolvido com ❤ por Antônio Vinícius</footer>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

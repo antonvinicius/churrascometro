@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body, input, button, a {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-size: 10px;
+    background-color: #F1F1F1;
+}
+
+header {
+    padding: 20px;
+    color: #FFF;
+    background-image: url('./assets/images/background.jpg');
+    background-size: cover;
+    background-position-y: center;
+    
+}
+
+header h1 {
+    font-weight: 400;
+    font-size: 1.9rem;
+    display: inline-block;
+}
+header h2 {
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+header img {
+    width: 50px;
+}
+
+.container {
+    padding: 12px 0 12px 0;
+    position: relative;
+    max-width: 500px;
+    height: 650px;
+    margin: 10px auto 0 auto;
+    background-color: #FFF;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.container input {
+    font-size: 1.2rem;
+    border-radius: 10px;
+    display: block;
+    width: 90%;
+    margin: auto;
+    padding: 20px 10px 20px 10px;
+    margin-bottom: 12px;
+    border: 2px solid #FF6262;
+}
+
+.container input:first-of-type {
+    margin-top: 30px;
+}
+
+.container input:focus {
+    background-color: #F1F1F1;
+    outline: none;
+    font-weight: bold;
+}
+
+.input-group-image {
+    position: relative;
+}
+
+.input-group-image img {
+    top: 10px;
+    right: 30px;
+    position: absolute;
+    width: 40px;
+}
+
+.container p {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.meat-icons {
+    text-align: center;
+}
+
+.meat-icons .active {
+    border: 2px solid #FF6262;
+    background-color: #F1F1F1;
+    -webkit-box-shadow: 2px 9px 26px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 9px 26px -15px rgba(0,0,0,0.75);
+    box-shadow: 2px 9px 26px -15px rgba(0,0,0,0.75);
+}
+
+.meat-icons img {
+    cursor: pointer;
+    margin-left: 8px;
+    display: inline-block;
+    width: 75px;
+    border-radius: 10px;
+    transition: all 0.1s;
+}
+
+.container button {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: none;
+    color: #FFF;
+    background-color: #FF6262;
+    padding: 20px 0 20px 0;
+    font-weight: 400;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+#p2 {
+    display: none;
+    position: relative;
+}
+
+#p2 .msg {
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+#p2 .red {
+    margin-left: 20px;
+    text-align: start;
+    color: #FF6262;
+}
+
+#back {
+    opacity: 0.7;
+    width: 40px;
+    position: absolute;
+    right: 0;
+    top: -10px;
+    transition: opacity 0.3s;
+}
+
+#back:hover {
+    opacity: 1;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #FFF;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(27, 27, 27);
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        padding: 60px 100px 60px 100px !important;
+    }
+    header h1 {
+        font-size: 2.5rem;
+    }
+    header h2 {
+        font-size: 1.5rem;
+    }
+}
