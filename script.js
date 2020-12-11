@@ -2,10 +2,10 @@ function enableMeatIcon(e) {
     e.classList.toggle('active')
 }
 
-// 400gr carne/ pessoa
-// 1200ml cerveja/ pessoa
-// 1000ml refrigerante-agua/pessoa
-// crianças valem por 0.5
+function setDefaultValue(e) {
+    if (e.value === '')
+        e.value = 0
+}
 
 function recuperarValoresChurrasco() {
     let churrasco = {
@@ -25,7 +25,8 @@ function recuperarValoresChurrasco() {
         let inputValue = inputs[i].children[1].value // Valor do input
         //Validação
         if (inputValue === '') {
-            alert('Valor não pode estar vazio.')
+            let inputName = inputs[i].children[1].getAttribute('name')
+            alert(`${inputName} não pode estar vazio`)
             return
         }
         churrasco.inputs[i] = inputValue
@@ -48,12 +49,102 @@ function recuperarValoresChurrasco() {
     }
 
     // Valores validados
-    calcularValoresChurrasco(churrasco)
+    let quantidades = calcularValoresChurrasco(churrasco)
+    hidePanel()
+    enableResultPanel(quantidades)
 }
 
 function calcularValoresChurrasco(churrasco) {
     let [nHomens, nMulheres, nCriancas, nDuracao] = churrasco.inputs
-    let {carne, frango, refri, cerveja} = churrasco.itens
-    //TODO calcular valores com as variáveis acima
-    //TODO criar método para chamar o #p2 e ocultar #p1 mostrando os valores obtidos
+    let { carne, frango, refri, cerveja } = churrasco.itens
+    // Constantes
+    const kCarneHomem = 500
+    const kCarneMulher = 300
+    const kCarneCrianca = 200
+    const kCerveja = nDuracao >= 6 ? 2000 : 1200
+    const kBebida = nDuracao >= 6 ? 1500 : 1000
+    const kFrango = 2.75
+
+    // Variaveis 
+    let qtdCarne, qtdFrango, qtdBebida, qtdCerveja
+
+    // Cálculo da carne
+    if (carne)
+        qtdCarne = (kCarneHomem * nHomens) + (kCarneMulher * nMulheres) + (kCarneCrianca * nCriancas)
+    if (frango && carne) {
+        qtdFrango = qtdCarne / kFrango
+        qtdCarne = qtdCarne - qtdFrango
+    }
+    else if (frango) {
+        qtdFrango = (kCarneHomem * nHomens) + (kCarneMulher * nMulheres) + (kCarneCrianca * nCriancas)
+    }
+    // Cálculo das bebidas
+    if (refri)
+        qtdBebida = (kBebida * nHomens) + (kBebida * nMulheres) + ((kBebida * nCriancas) / 2)
+    if (cerveja)
+        qtdCerveja = (kCerveja * nHomens) + (kCerveja * nMulheres)
+
+    // Formatação
+    // Carne
+    qtdCarne = `${(qtdCarne / 1000).toFixed(2)} Kg de Carne`
+    qtdFrango = `${(qtdFrango / 1000).toFixed(2)} Kg de Frango`
+    qtdBebida = `${Math.floor((qtdBebida / 1000) / 2)} Garrafas de bebidas de 2L`
+    qtdCerveja = `${Math.floor((qtdCerveja / 1000) / 0.350)} Latinhas de Cerveja`
+
+    let quantidades = [qtdCarne, qtdFrango, qtdBebida, qtdCerveja]
+
+    return quantidades
+}
+
+function reset() {
+    let p1 = document.getElementById('p1')
+    let p2 = document.getElementById('p2')
+    p2.style.display = 'none'
+    p1.style.display = 'block'
+
+    // Limpar inputs
+    let inputGroup = document.getElementById('inputs')
+    let inputs = inputGroup.children
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].children[1].value = ''
+    }
+    // Limpar inputs p2
+    let inputGroup2 = document.getElementById('inputs_p2')
+    let inputs2 = inputGroup2.children
+    for (let i = 0; i < inputs2.length; i++) {
+        inputs2[i].children[1].removeAttribute('readonly')
+        inputs2[i].children[1].removeAttribute('style')
+    }
+
+    // Limpar ícones de comida
+    let meatIcons = document.getElementById('meat-icons')
+    let icons = meatIcons.children
+    for (let icon of icons) {
+        icon.className = ''
+    }
+
+}
+
+function hidePanel() {
+    let p1 = document.getElementById('p1')
+    p1.style.display = 'none'
+}
+
+function enableResultPanel(result) {
+    let p2 = document.getElementById('p2')
+    p2.style.display = 'block'
+    let inputGroup = document.getElementById('inputs_p2')
+    let inputs = inputGroup.children
+    for (let i = 0; i < inputs.length; i++) {
+        if (!result[i].includes('NaN')){
+            inputs[i].children[1].value = result[i]
+            inputs[i].children[1].setAttribute('readonly', 'true')
+        }
+        else {
+            inputs[i].children[1].value = 'N/A'
+            inputs[i].children[1].style.backgroundColor = '#DDD'
+            inputs[i].children[1].setAttribute('readonly', 'true')
+        }
+    }
+
 }

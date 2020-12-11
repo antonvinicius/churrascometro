@@ -45,7 +45,7 @@ header img {
     position: relative;
     max-width: 500px;
     height: 650px;
-    margin: 10px auto 0 auto;
+    margin: 60px auto 0 auto;
     background-color: #FFF;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -172,5 +172,15 @@ footer {
     }
     header h2 {
         font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .meat-icons img {
+        width: 65px;
+    }
+    .input-group-image img {
+        width: 30px;
+        top: 20px;
     }
 }

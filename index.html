@@ -24,19 +24,19 @@
             <div class="input-group" id="inputs">
                 <div class="input-group-image">
                     <img src="./assets/dad.svg" alt="">
-                    <input id="nHomens" type="text" placeholder="Nº de Homens">
+                    <input id="nHomens" name="Nº de Homens" onfocusout="setDefaultValue(this)" autocomplete="off" type="number" placeholder="Nº de Homens">
                 </div>
                 <div class="input-group-image">
                     <img src="./assets/woman.svg" alt="">
-                    <input id="nMulheres" type="text" placeholder="Nº de Mulheres">
+                    <input id="nMulheres" name="Nº de Mulheres" onfocusout="setDefaultValue(this)" autocomplete="off" type="number" placeholder="Nº de Mulheres">
                 </div>
                 <div class="input-group-image">
                     <img src="./assets/baby-boy.svg" alt="">
-                    <input id="nCriancas" type="text" placeholder="Nº de Crianças">
+                    <input id="nCriancas" name="Nº de Crianças" onfocusout="setDefaultValue(this)" autocomplete="off" type="number" placeholder="Nº de Crianças">
                 </div>
                 <div class="input-group-image">
                     <img src="./assets/clock.svg" alt="">
-                    <input id="nDuracao" type="text" placeholder="Tempo de duração (horas)">
+                    <input id="nDuracao" name="Tempo de duração" onfocusout="setDefaultValue(this)" autocomplete="off" type="number" placeholder="Tempo de duração (horas)">
                 </div>
             </div>
             <p>O que terá no churrasco?</p>
@@ -46,28 +46,28 @@
                 <img onclick="enableMeatIcon(this)" id="refri" src="./assets/images/meat-icons/coke.png" alt="Refrigerante">
                 <img onclick="enableMeatIcon(this)" id="cerveja" src="./assets/images/meat-icons/beer.png" alt="Cerveja">
             </div>
-            <button onclick="recuperarValoresChurrasco()">CHURRASCAR</button>
+            <button onclick="recuperarValoresChurrasco(this)">CHURRASCAR</button>
         </div>
         <div class="container" id="p2">
             <p class="msg">Ebaa! É hora de colocar a mão na lenha 🔥</p>
             <p class="red">Você precisa de:</p>
-            <img src="./assets/back.svg" id="back" alt="Voltar">
-            <div class="input-group">
+            <img src="./assets/back.svg" id="back" onclick="reset()" alt="Voltar">
+            <div class="input-group" id="inputs_p2">
                 <div class="input-group-image">
                     <img class="img" src="./assets/images/meat-icons/meat.png" alt="">
-                    <input type="text">
+                    <input type="text" id="result-meat">
                 </div>
                 <div class="input-group-image">
                     <img class="img" src="./assets/images/meat-icons/chicken.png" alt="">
-                    <input type="text">
+                    <input type="text" id="result-chicken">
                 </div>
                 <div class="input-group-image">
                     <img class="img" src="./assets/images/meat-icons/coke.png" alt="">
-                    <input type="text">
+                    <input type="text" id="result-coke">
                 </div>
                 <div class="input-group-image">
                     <img class="img" src="./assets/images/meat-icons/beer.png" alt="">
-                    <input type="text">
+                    <input type="text" id="result-beer">
                 </div>
             </div>
             <button>COMPARTILHAR</button>
