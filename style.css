@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 html, body {
     height: 100%;
 }
@@ -137,6 +146,31 @@ header img {
     margin-left: 20px;
     text-align: start;
     color: #FF6262;
+}
+
+.input-group-image-p2 {
+    display: block;
+    width: 95%;
+    height: 70px;
+    border: 2px solid #FF6262;
+    margin: 0px auto 40px auto;
+    border-radius: 12px;
+    position: relative;
+}
+.input-group-image-p2 img {
+    width: 50px;
+    position: absolute;
+    right: 0;
+    top: 8px;
+}
+.input-group-image-p2 span {
+    color: #FF6262;
+}
+.input-group-image-p2 h1 {
+    margin-left: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #back {

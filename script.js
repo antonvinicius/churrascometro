@@ -86,10 +86,10 @@ function calcularValoresChurrasco(churrasco) {
 
     // Formatação
     // Carne
-    qtdCarne = `${(qtdCarne / 1000).toFixed(2)} Kg de Carne`
-    qtdFrango = `${(qtdFrango / 1000).toFixed(2)} Kg de Frango`
-    qtdBebida = `${Math.floor((qtdBebida / 1000) / 2)} Garrafas de bebidas de 2L`
-    qtdCerveja = `${Math.floor((qtdCerveja / 1000) / 0.350)} Latinhas de Cerveja`
+    qtdCarne = `<span>${(qtdCarne / 1000).toFixed(2)}</span> Kg de Carne`
+    qtdFrango = `<span>${(qtdFrango / 1000).toFixed(2)}</span> Kg de Frango`
+    qtdBebida = `<span>${Math.floor((qtdBebida / 1000) / 2)}</span> Garrafas de bebidas de 2L`
+    qtdCerveja = `<span>${Math.floor((qtdCerveja / 1000) / 0.350)}</span> Latinhas de Cerveja`
 
     let quantidades = [qtdCarne, qtdFrango, qtdBebida, qtdCerveja]
 
@@ -137,13 +137,11 @@ function enableResultPanel(result) {
     let inputs = inputGroup.children
     for (let i = 0; i < inputs.length; i++) {
         if (!result[i].includes('NaN')){
-            inputs[i].children[1].value = result[i]
-            inputs[i].children[1].setAttribute('readonly', 'true')
+            inputs[i].children[1].innerHTML = result[i]
         }
         else {
-            inputs[i].children[1].value = 'N/A'
-            inputs[i].children[1].style.backgroundColor = '#DDD'
-            inputs[i].children[1].setAttribute('readonly', 'true')
+            inputs[i].children[1].innerHTML = 'N/A'
+            inputs[i].style.backgroundColor = '#DDD'
         }
     }
 
