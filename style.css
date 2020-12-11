@@ -23,7 +23,8 @@ body, input, button, a {
 
 body {
     font-size: 10px;
-    background-color: #F1F1F1;
+    background-image: url('./assets/images/bg.png');
+    background-size: cover;
 }
 
 header {
@@ -132,9 +133,16 @@ header img {
     cursor: pointer;
 }
 
+#p1 {
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
 #p2 {
+    opacity: 0;
     display: none;
     position: relative;
+    transition: opacity 1s;
 }
 
 #p2 .msg {

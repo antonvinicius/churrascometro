@@ -1,3 +1,5 @@
+let timeOut
+
 function enableMeatIcon(e) {
     e.classList.toggle('active')
 }
@@ -97,10 +99,13 @@ function calcularValoresChurrasco(churrasco) {
 }
 
 function reset() {
+    clearTimeout(timeOut)
     let p1 = document.getElementById('p1')
     let p2 = document.getElementById('p2')
     p2.style.display = 'none'
+    p2.style.opacity = '0'
     p1.style.display = 'block'
+    p1.style.opacity = '1'
 
     // Limpar inputs
     let inputGroup = document.getElementById('inputs')
@@ -112,8 +117,7 @@ function reset() {
     let inputGroup2 = document.getElementById('inputs_p2')
     let inputs2 = inputGroup2.children
     for (let i = 0; i < inputs2.length; i++) {
-        inputs2[i].children[1].removeAttribute('readonly')
-        inputs2[i].children[1].removeAttribute('style')
+        inputs2[i].removeAttribute('style')
     }
 
     // Limpar ícones de comida
@@ -127,12 +131,21 @@ function reset() {
 
 function hidePanel() {
     let p1 = document.getElementById('p1')
-    p1.style.display = 'none'
+    p1.style.opacity = '0'
+    timeOut = setTimeout(() => {
+        p1.style.display = 'none'
+    },500)
 }
 
 function enableResultPanel(result) {
     let p2 = document.getElementById('p2')
-    p2.style.display = 'block'
+    setTimeout(() => {
+        p2.style.display = 'block'
+    },500)
+    setTimeout(() => {
+        p2.style.opacity = '1'
+    },1000)
+
     let inputGroup = document.getElementById('inputs_p2')
     let inputs = inputGroup.children
     for (let i = 0; i < inputs.length; i++) {
